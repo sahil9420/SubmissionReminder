@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "840711458563",
+    "firebase_url": "https://login-58db3.firebaseio.com",
+    "project_id": "login-58db3",
+    "storage_bucket": "login-58db3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840711458563:android:6b8a31ef3ac9779c",
+        "android_client_info": {
+          "package_name": "com.example.android.submissionremainder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840711458563-l3fqankn0jr6djvgq6u1tff0bfj377af.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "840711458563-l3fqankn0jr6djvgq6u1tff0bfj377af.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkWxGUY2gutvN-hTVmQbdjRayoLrk5_dk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
