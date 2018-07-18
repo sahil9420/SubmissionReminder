@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".welcomeactivity"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+    <LinearLayout
+        android:id="@+id/a11"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:textColor="@color/lightOranfeDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hey!"
+            android:textAllCaps="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="150dp"
+            android:textSize="40sp"
+            android:textStyle="italic"
+            />
+
+        <TextView
+
+            android:textColor="@color/lightOrange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="50dp"
+            android:layout_gravity="center_horizontal"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/a12"
+        android:layout_marginTop="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/spaceullustration"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:id="@+id/buttonEnter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter In"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonstyle"
+            android:onClick="openLogin"
+
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>
