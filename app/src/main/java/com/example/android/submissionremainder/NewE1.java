@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -64,8 +65,7 @@ public class NewE1 extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private ImageButton mPhotoPickerButton;
     private EditText mMessageEditText;
-    private Button mSendButton;
-
+    FloatingActionButton fab;
     private String mUsername;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mMessagesDatabaseReference;
@@ -90,7 +90,7 @@ public class NewE1 extends AppCompatActivity {
         mMessageListView = (ListView) findViewById(R.id.messageListViewE);
         mPhotoPickerButton = (ImageButton) findViewById(R.id.photoPickerButtonE);
         mMessageEditText = (EditText) findViewById(R.id.messageEditTextE);
-        mSendButton = (Button) findViewById(R.id.sendButtonE);
+        fab = (FloatingActionButton) findViewById(R.id.sendButtonE);
 
         // Initialize message ListView and its adapter
         List<AdminContent> adminContents = new ArrayList<>();
@@ -126,9 +126,9 @@ public class NewE1 extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.toString().trim().length() > 0) {
-                    mSendButton.setEnabled(true);
+                    fab.setEnabled(true);
                 } else {
-                    mSendButton.setEnabled(false);
+                    fab.setEnabled(false);
                 }
             }
 
@@ -137,7 +137,7 @@ public class NewE1 extends AppCompatActivity {
             }
         });
         mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
-        mSendButton.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // TODO: Send messages on click

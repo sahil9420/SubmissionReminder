@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -57,7 +58,7 @@ public class NewG1 extends AppCompatActivity {
     public static final int DEFAULT_MSG_LENGTH_LIMIT = 1000;
     private static final int GALLERY_PICK = 1 ;
     private static final int RC_PHOTO_PICKER = 2;
-
+    FloatingActionButton fab;
 
    // private String Username;
     private ListView mMessageListView;
@@ -65,7 +66,9 @@ public class NewG1 extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private ImageButton mPhotoPickerButton;
     private EditText mMessageEditText;
-    private Button mSendButton;
+
+
+
     String Username;
     private String mUsername;
     private FirebaseDatabase mFirebaseDatabase;
@@ -95,7 +98,8 @@ public class NewG1 extends AppCompatActivity {
         mMessageListView = (ListView) findViewById(R.id.messageListView);
         mPhotoPickerButton = (ImageButton) findViewById(R.id.photoPickerButton);
         mMessageEditText = (EditText) findViewById(R.id.messageEditText);
-        mSendButton = (Button) findViewById(R.id.sendButton);
+        fab =(FloatingActionButton) findViewById(R.id.sendButtonG);
+
 
         // Initialize message ListView and its adapter
         List<AdminContent> adminContents = new ArrayList<>();
@@ -130,9 +134,9 @@ public class NewG1 extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.toString().trim().length() > 0) {
-                    mSendButton.setEnabled(true);
+                    fab.setEnabled(true);
                 } else {
-                    mSendButton.setEnabled(false);
+                    fab.setEnabled(false);
                 }
             }
 
@@ -141,7 +145,7 @@ public class NewG1 extends AppCompatActivity {
             }
         });
         mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
-        mSendButton.setOnClickListener(new View.OnClickListener() {
+      /*  mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // TODO: Send messages on click
@@ -150,8 +154,17 @@ public class NewG1 extends AppCompatActivity {
                 // Clear input box
                 mMessageEditText.setText("");
             }
-        });
+        });*/
 
+      fab.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              AdminContent adminContent = new AdminContent(mMessageEditText.getText().toString(), mUsername, null);
+              mMessagesDatabaseReference.push().setValue(adminContent);
+              // Clear input box
+              mMessageEditText.setText("");
+          }
+      });
         mChildEventListner=new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {

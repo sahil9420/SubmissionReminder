@@ -3,6 +3,7 @@ package com.example.android.submissionremainder;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -38,7 +39,7 @@ public class NewG extends AppCompatActivity {
     private ListView mMessageListView;
     private MessageAdapter mMessageAdapter;
     private ProgressBar mProgressBar;
-
+    FloatingActionButton fab ;
 
     private String mUsername;
     private FirebaseDatabase mFirebaseDatabase;

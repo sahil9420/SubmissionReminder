@@ -7,11 +7,15 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.submissionremainder.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -22,9 +26,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class register extends AppCompatActivity {
     String name ,username ,Branch ,Id,pass ,mobile;
- private EditText ename, eid, euser2, epass2, ebranch ,emobile;
- private Button eregister;
- private FirebaseAuth firebaseauth;
+    Spinner spinner;
+    ArrayAdapter<CharSequence> adapter;
+    private EditText ename, eid, euser2, epass2,emobile;
+    private Button eregister;
+    private FirebaseAuth firebaseauth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,16 +41,30 @@ public class register extends AppCompatActivity {
         eid = (EditText) findViewById(R.id.eid);
         epass2 = (EditText) findViewById(R.id.epass2);
         euser2 = (EditText) findViewById(R.id.euser2);
-        ebranch = (EditText) findViewById(R.id.ebranch);
+        spinner = (Spinner)findViewById(R.id.spinner);
         emobile =(EditText) findViewById(R.id.emobile);
         firebaseauth= FirebaseAuth.getInstance();
+        adapter= ArrayAdapter.createFromResource(register.this ,R.array.branch_arrays,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         eregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(validate())
                 { String useremail=euser2.getText().toString().trim();
-                  String pass =epass2.getText().toString().trim();
+                    String pass =epass2.getText().toString().trim();
 
 
                     firebaseauth.createUserWithEmailAndPassword(useremail,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -59,19 +79,19 @@ public class register extends AppCompatActivity {
                         }
                     });
 
+                }
             }
-        }
         });
 
     }
     private  Boolean validate()
     { Boolean result= false;
-         name = ename.getText().toString();
-         pass = epass2.getText().toString();
-         username = euser2.getText().toString();
-        Branch = ebranch.getText().toString();
-         Id = eid.getText().toString();
-         mobile =emobile.getText().toString();
+        name = ename.getText().toString();
+        pass = epass2.getText().toString();
+        username = euser2.getText().toString();
+        Branch =spinner.getSelectedItem().toString();
+        Id = eid.getText().toString();
+        mobile =emobile.getText().toString();
 
 
 
@@ -85,14 +105,14 @@ public class register extends AppCompatActivity {
         else { result=true;}
         return  result;
     }
-  public void senduserdata(){
+    public void senduserdata(){
 
-    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-      DatabaseReference myref = firebaseDatabase.getReference(firebaseauth.getUid());
-      Userprofile userprofile = new Userprofile(name ,Id ,Branch , username ,mobile);
-       myref.setValue(userprofile);
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myref = firebaseDatabase.getReference(firebaseauth.getUid());
+        Userprofile userprofile = new Userprofile(name ,Id ,Branch , username ,mobile);
+        myref.setValue(userprofile);
 
-   }
+    }
     private void sendEmailVerification(){
         FirebaseUser firebaseUser = firebaseauth.getCurrentUser();
         if(firebaseUser!=null){
@@ -100,7 +120,7 @@ public class register extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
-                      senduserdata();
+                        senduserdata();
                         Toast.makeText(register.this, "Successfully Registered, Verification mail sent!", Toast.LENGTH_SHORT).show();
                         firebaseauth.signOut();
                         finish();
@@ -117,3 +137,4 @@ public class register extends AppCompatActivity {
 
 
 }
+

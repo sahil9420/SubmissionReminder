@@ -1,7 +1,10 @@
 package com.example.android.submissionremainder;
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
@@ -23,6 +26,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -35,6 +39,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import static com.google.firebase.database.DatabaseReference.*;
 
@@ -112,8 +117,8 @@ public class NewS extends AppCompatActivity {
     }
 
    public void setReminder(View view) {
-        Calendar cal = Calendar.getInstance();
-        Intent intent = new Intent(Intent.ACTION_EDIT);
+       Calendar cal = Calendar.getInstance();
+       Intent intent = new Intent(Intent.ACTION_EDIT);
         intent.setType("vnd.android.cursor.item/event");
         intent.putExtra("beginTime", cal.getTimeInMillis());
         intent.putExtra("allDay", false);
@@ -121,7 +126,10 @@ public class NewS extends AppCompatActivity {
         intent.putExtra("endTime", cal.getTimeInMillis() + 60 * 60 * 1000);
         intent.putExtra("title", "Submission Reminder");
         startActivity(intent);
+
+
     }
+
 
     public void addEvent(String title, String location, long begin, long end) {
         Intent intent = new Intent(Intent.ACTION_INSERT)

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -60,7 +61,7 @@ public class NewS1 extends AppCompatActivity {
     private MessageAdapter mMessageAdapter;
     private ProgressBar mProgressBar;
     private EditText mMessageEditText;
-    private Button mSendButton;
+    FloatingActionButton fab;
 
     private String mUsername;
     private FirebaseDatabase mFirebaseDatabase;
@@ -81,7 +82,7 @@ public class NewS1 extends AppCompatActivity {
         mProgressBar = (ProgressBar) findViewById(R.id.progressBarS);
         mMessageListView = (ListView) findViewById(R.id.messageListViewS);
         mMessageEditText = (EditText) findViewById(R.id.messageEditTextS);
-        mSendButton = (Button) findViewById(R.id.sendButtonS);
+        fab = (FloatingActionButton) findViewById(R.id.sendButtonS);
 
         // Initialize message ListView and its adapter
         List<AdminContent> adminContents = new ArrayList<>();
@@ -104,9 +105,9 @@ public class NewS1 extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.toString().trim().length() > 0) {
-                    mSendButton.setEnabled(true);
+                    fab.setEnabled(true);
                 } else {
-                    mSendButton.setEnabled(false);
+                   fab.setEnabled(false);
                 }
             }
 
@@ -115,7 +116,7 @@ public class NewS1 extends AppCompatActivity {
             }
         });
         mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(DEFAULT_MSG_LENGTH_LIMIT)});
-        mSendButton.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // TODO: Send messages on click

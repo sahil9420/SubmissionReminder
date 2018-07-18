@@ -46,7 +46,7 @@ public class Admin  extends Activity {
                 String password = String.valueOf(et_Password.getText());
 
                 // Validates the User name and Password for admin, admin
-                if (username.equals("adminExtc") && password.equals("9890507")) {
+                if (username.equals("admin") && password.equals("9890507")) {
                     tv_message.setText("Login Successful!");
                     //last phase starting for inheritance
                     Intent intent= new Intent(Admin.this, Admin1.class);

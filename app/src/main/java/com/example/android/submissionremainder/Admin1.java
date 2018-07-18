@@ -6,13 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 
 public class Admin1 extends AppCompatActivity {
-    private String myUsername;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin1);
-        myUsername=getIntent().getExtras().getString("USERNAME");
 
     }
     public void openNewG1 (View view){
@@ -26,6 +25,11 @@ public class Admin1 extends AppCompatActivity {
     public void openNewE1 (View view){
         Intent startNewE1 = new Intent(this, NewE1.class);
         startActivity(startNewE1);
+    }
+
+    public void welcome (View view){
+        Intent welcome = new Intent(this, welcomeactivity.class);
+        startActivity(welcome);
     }
 
 }

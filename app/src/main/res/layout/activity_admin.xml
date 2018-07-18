@@ -3,50 +3,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="50dp"
+        android:background="@color/black"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/testcolorblue"
+            android:text="ADMIN LOGIN"
+            android:textStyle="bold"
+            android:textSize="35dp"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="ADmin login"
-        android:textSize="48dp"
-        android:textAllCaps="true"
-        />
-    <TextView
-        android:id="@+id/tv_Username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="28dp"
-        android:text="User Name" />
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/testcolorblue"
+            android:text="Login with provided username and password"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
 
     <EditText
         android:id="@+id/et_Username"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textColor="@color/Edittext"
+        android:hint="USERNAME"
+        android:layout_marginTop="80dp"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:drawablePadding="10dp"
        >
 
         <requestFocus />
     </EditText>
 
-    <TextView
-        android:id="@+id/tv_Password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
-        android:text="Password"
-        android:layout_gravity="center_horizontal"
-        android:textSize="28dp"/>
 
     <EditText
         android:id="@+id/et_Password"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="@color/Edittext"
+        android:hint="PASSWORD"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        android:drawablePadding="10dp"/>
 
     <Button
         android:id="@+id/bt_SignIn"
@@ -54,7 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
         android:text="Login"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/buttonsytlem"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,5 +79,7 @@
         android:textSize="22dp"
         android:text=""
         android:layout_gravity="center_horizontal"/>
+</LinearLayout>
+
 
 </LinearLayout>
