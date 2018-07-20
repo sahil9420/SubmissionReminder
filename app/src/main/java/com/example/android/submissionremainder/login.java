@@ -81,6 +81,7 @@ public class login extends AppCompatActivity {
                     validate(etextuser.getText().toString(), etextpassword.getText().toString());
                 }
 
+
             }
         });
         tvregister.setOnClickListener(new View.OnClickListener() {
@@ -112,19 +113,20 @@ public class login extends AppCompatActivity {
 
 
 
-
+        //Items were not responding in click
         //dl = (DrawerLayout) findViewById(R.id.dl);
         //toggle = new ActionBarDrawerToggle(this,dl,R.string.open,R.string.close);
         //dl.addDrawerListener(toggle);
         //NavigationView nvDrawer = (NavigationView) findViewById(R.id.nv);
        // nvDrawer.bringToFront();
         //toggle.syncState();
+        //getSupportActionBar().setTitle("Submission Reminder");
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //setupDrawerContent(nvDrawer);
 
 
     }
-    public void selectItemDrawer(MenuItem menuItem) {
+    /*public void selectItemDrawer(MenuItem menuItem) {
         Fragment myFragment = null;
         Class fragmentClass;
         switch (menuItem.getItemId()){
@@ -159,7 +161,7 @@ public class login extends AppCompatActivity {
                 return true;
             }
         });
-    }
+    }*/
 
 
     public void openAdmin (View view){

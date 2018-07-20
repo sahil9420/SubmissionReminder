@@ -98,7 +98,7 @@ public class register extends AppCompatActivity {
 
 
 
-        if(username.isEmpty() || pass.isEmpty() || name.isEmpty() || Branch.isEmpty() || Id.isEmpty() || mobile.isEmpty())
+        if(username.isEmpty() || pass.isEmpty() || name.isEmpty() || Branch.equals("SELECT YOUR BRANCH") || Id.isEmpty() || mobile.isEmpty())
         {
             Toast.makeText(this, "please fill alll credentials ",Toast.LENGTH_SHORT).show();
         }

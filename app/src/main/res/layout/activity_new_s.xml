@@ -19,7 +19,7 @@
         android:stackFromBottom="true"
         android:divider="@android:color/transparent"
         android:transcriptMode="alwaysScroll"
-        tools:listitem="@layout/custom_layout"
+        tools:listitem="@layout/item_message"
         />
 
     <android.support.design.widget.FloatingActionButton
@@ -34,7 +34,8 @@
         android:layout_alignParentRight="true"
         app:fabSize="mini"
         android:onClick="setReminder"
-        android:layout_marginLeft="220dp"/>
+        android:layout_marginLeft="220dp"
+        android:layout_marginBottom="25dp"/>
 
     <ProgressBar
         android:id="@+id/progressBarS"
