@@ -57,4 +57,9 @@ public class MainActivity extends AppCompatActivity {
         Intent startDiscussion = new Intent(this, discussion.class);
         startActivity(startDiscussion);
     }
+    public void openQuiz (View view){
+        Intent startQuiz = new Intent(this, QuizMainActivity.class);
+        startActivity(startQuiz);
+    }
+
 }
