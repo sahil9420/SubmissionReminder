@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Playing"
+    android:background="@drawable/background">
+    <TextView
+        android:id="@+id/myTextquestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:paddingTop="20dp"
+        android:layout_alignParentBottom="true"
+        >
+       <LinearLayout
+           android:id="@+id/group"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:paddingTop="10dp"
+           android:orientation="vertical">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:weightSum="2">
+               <TextView
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:id="@+id/txtscore"
+                   android:textColor="@color/backgroundcolor"
+                   android:gravity="center_horizontal"
+                   android:text="0"
+                   android:textSize="36sp"/>
+               <TextView
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:id="@+id/txtNoQuestions"
+                   android:textColor="@color/backgroundcolor"
+                   android:gravity="center_horizontal"
+                   android:text="1/10"
+                   android:textSize="36sp"/>
+
+
+           </LinearLayout>
+
+           <ProgressBar
+               android:id="@+id/progressBarQuiz"
+               style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+               android:layout_marginRight="8dp"
+               android:layout_marginLeft="8dp"
+               android:max="5"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Answer A"
+               android:textColor="@color/black"
+               android:textStyle="bold"
+               android:theme="@style/Mybutton"
+               style="@style/Base.Widget.AppCompat.Button.Borderless"
+               android:background="@drawable/buttonsytlem"
+               android:layout_margin="8dp"
+               android:foreground="?android:attr/selectableItemBackground"
+               android:id="@+id/ButtonAnsA"/>
+
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Answer B"
+               android:textColor="@color/black"
+               android:textStyle="bold"
+               android:theme="@style/Mybutton"
+               style="@style/Base.Widget.AppCompat.Button.Borderless"
+               android:background="@drawable/buttonsytlem"
+               android:layout_margin="8dp"
+               android:foreground="?android:attr/selectableItemBackground"
+               android:id="@+id/ButtonAnsB"/>
+
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Answer C"
+               android:textColor="@color/black"
+               android:textStyle="bold"
+               android:theme="@style/Mybutton"
+               style="@style/Base.Widget.AppCompat.Button.Borderless"
+               android:background="@drawable/buttonsytlem"
+               android:layout_margin="8dp"
+               android:foreground="?android:attr/selectableItemBackground"
+               android:id="@+id/ButtonAnsC"/>
+
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Answer D"
+               android:textColor="@color/black"
+               android:textStyle="bold"
+               android:theme="@style/Mybutton"
+               style="@style/Base.Widget.AppCompat.Button.Borderless"
+               android:background="@drawable/buttonsytlem"
+               android:layout_margin="8dp"
+               android:foreground="?android:attr/selectableItemBackground"
+               android:id="@+id/ButtonAnsD"/>
+
+
+       </LinearLayout>
+        
+        
+        
+        
+        
+        
+    </RelativeLayout>
+
+</RelativeLayout>

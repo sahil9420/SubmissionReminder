@@ -24,5 +24,12 @@
         <item name="colorPrimaryDark">#006064</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="Mybutton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight" >#1CB3BC</item>
+
+
+
+
+    </style>
 
 </resources>
